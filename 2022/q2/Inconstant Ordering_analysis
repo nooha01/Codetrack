@@ -1,0 +1,19 @@
+Test Set 1
+It is given that a valid string must start with A.
+
+For N=1, the only block B1 should therefore start with a character greater than A. To keep building the alphabetically first valid string, we start B1 with B which is just greater than A. We keep on incrementing the character as we move right to ensure that B1 is strictly increasing. Notice that we will eventually end up with a prefix of BCDE..XYZ as B1. As Li≤25, we will never run out of characters for this.
+
+For N=2, we construct the first block B1 using the process described for N=1. We now evaluate the possible ways to fill the strictly decreasing second block B2. We try to start B2 with the smallest possible character to get the alphabetically first string. This implies that B2 will end with the smallest character in the alphabet which is A. So, we start filling B2 from the end with A and move to the left, incrementing the character.
+
+Let b1 be the last character in B1 and b2 be the first character in B2. If b1>b2, then we will always get a valid string as it ensures that B2 is strictly decreasing. On the other hand if b1≤b2, then the final string is invalid. For example, if L1=2 and L2=4, the resulting string from the above process will be ABCDCBA which is invalid.
+
+To ensure that B2 is always strictly decreasing, we update b1 with the character just greater than b2. This will guarantee that the string is valid and alphabetically the first one. Again as Li≤25, we will never run out of characters while filling B2. In the above example, ABCDCBA now transforms to a valid string ABEDCBA.
+
+Test Set 2
+We generalize the above solution for N>2.
+
+If N is even, we can divide the blocks into N/2 pairs as |L1,L2|L3,L4|...|LN−1,LN| and solve the N/2 pairs independently using the same approach as for N=2. We can do this as every such pair of blocks will end with A.
+
+If N is odd, we solve for N−1 blocks using the above approach and for the last block LN, we treat it as the case when N=1.
+
+The time complexity is O(L1+L2+⋯+LN) for each test case.

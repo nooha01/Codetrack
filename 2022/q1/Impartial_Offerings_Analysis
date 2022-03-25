@@ -1,0 +1,14 @@
+Analysis
+One observation that helps us find a solution is: we will never need to give any pet more than N treats. So for each pet, we need to consider at most N options for treats, 1,2,…,N. We can quickly verify that this observation is true with a simple argument. If there is a positive integer X such that no pet receives X and some pets receive X+1, then we can give all those pets X instead, keep everything valid and reduce the total amount of treats.
+
+For Test Set 1, limits are small enough for a brute force solution. For each pet, we can try all the numbers (1,2,…,N) of treats, and check if that assignment fulfills our criteria. Then we output the minimum total from among the valid assignments. There are NN possible assignments. For each assignment, we can check the validity criteria by checking that all pairs of pets satisfy the impartiality rule in O(N2) time. This makes the overall time complexity O(NN+2), which is sufficient for Test Set 1.
+
+For Test Set 2, we need to find the solution faster.
+
+All pets of the same size must get the same amount of treats, and any pet must get strictly more treats than all pets strictly smaller than it. That means that if we sort the pets by size (in non-decreasing order), the number of treats each pet must get is also sorted. Since we need to minimize the number of treats, we can start by giving 1 treat to the smallest animal. Then, for every animal in the sorted list, we can give it:
+
+the same number of treats as the previous one, if it is the same size as the previous one.
+1 more treat than the previous one, if it is bigger.
+By distributing treats like this, we are keeping the invariant that the assignment is optimal for the set of pets that have already received treats. When considering the next pet, we are giving the minimum amount possible. Therefore, we are giving the minimum number of treats whilst also fulfilling the condition.
+
+The sorting of the pets takes O(NlogN) time, and the assigning of the treats can be done in O(N) time. This makes the overall time complexity O(NlogN), which is sufficient to pass Test Set 2.
