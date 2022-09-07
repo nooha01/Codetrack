@@ -1,44 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int NumberOfRecordBreakingDays(int numberOfDays, vector<int> visitors) {
+  int recordBreaksCount = 0;
+  int previousRecord = 0;
+  for(int i=0;i<visitors.size();i++)
+  {
+      bool greaterThanPrevious = i == 0 || visitors[i] > previousRecord;
+      bool greaterThanNext = i == visitors.size()-1 || visitors[i] > visitors[i+1];
+      if(greaterThanPrevious && greaterThanNext)
+        recordBreaksCount++;
+      previousRecord = max(previousRecord, visitors[i]);
+  }
 
-	int t, t1 = 1;
-	cin >> t;
+  return recordBreaksCount;
+}
 
-	while (t--) {
-		int n;
-		cin >> n;
-
-		vector<int> v(n);
-
-		for (int i = 0; i < n; i++) {
-			cin >> v[i];
-		}
-
-		vector<int> arrMax(n);
-		arrMax[0] = v[0];
-
-		for (int i = 1; i < n; i++) {
-			arrMax[i] = max(arrMax[i - 1], v[i]);
-		}
-
-		int count = 0;
-
-		for (int i = 1; i < n - 1; i++) {
-			if (v[i] > arrMax[i - 1] && v[i] > v[i + 1]) {
-				count++;
-			}
-		}
-
-		if (n >= 1 && v[0] > v[1])
-			count++;
-		if (n >= 2 && v[n - 1] > arrMax[n - 2])
-			count++;
-
-		cout << "Case #" << t1++ << ": " << count << endl;
-	}
-
-	return 0;
+int main() {
+  int T;
+  cin >> T;
+  for (int tc = 1; tc <= T; ++tc) {
+    int N;
+    cin >> N;
+    vector<int> V(N);
+    for (int i = 0; i < N; ++i) {
+      cin >> V[i];
+    }
+    cout << "Case #" << tc << ": " << NumberOfRecordBreakingDays(N, V) << endl;
+  }
+  return 0;
 }
