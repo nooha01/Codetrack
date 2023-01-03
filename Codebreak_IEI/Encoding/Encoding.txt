@@ -1,0 +1,42 @@
+source: https://www.hackerrank.com/contests/code-break-1671190321/challenges/encoding-4-3
+
+Sanjay and febin are friends
+
+They want to change every message into binary representaion B of length N
+
+Then it is written down K times, shifted by 0,1,..,K-1 bits.
+
+If B = 1001010 and and it looks so:
+
+1001010
+01001010
+001001010
+0001001010
+
+Then calculate XOR in every column and write it down. This number is called . For example, XOR-ing the numbers in the above example results in
+
+1110100110
+
+Then the encoded message and are sent to Sanjay.
+
+Febin is using this encoding algorithm and asks Sanjay to decrpt it Can you help Sanjay implement this?
+
+Input Format
+
+The first line contains two integers N and K.
+
+The second line contains string S of length N+K-1 consisting of ones and zeros.
+
+Constraints
+
+1 <= N <= 10^6
+Output Format
+
+Decoded message of length , consisting of ones and zeros.
+Sample Input 0
+
+7 4
+1110100110
+Sample Output 0
+
+1001010
