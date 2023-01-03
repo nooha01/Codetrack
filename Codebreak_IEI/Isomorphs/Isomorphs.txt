@@ -1,0 +1,25 @@
+source:https://www.hackerrank.com/contests/code-break-1671190321/challenges/isomorphic-1-2
+
+As part of the Hestia‘22 CS department is organising a surprise coding test in which Derek has to solve a problem. Help Derek solve this problem, the problem statement is as follows:
+
+Two strings are given to the participants, determine if they are isomorphic. Assume that s and t are two strings. They are isomorphic if the characters in s can be replaced to get t. It should satisfy the following conditions: i)All occurrences of a character must be replaced with another character while preserving the order of characters. ii)No two characters may map to the same character, but a character may map to itself.
+
+Input Format
+
+Input: s = "egg", t = "add" Input: s = "foo", t = "bar"
+
+Constraints
+
+.
+
+Output Format
+
+Output: true Output: false
+
+Sample Input 0
+
+Add
+egg
+Sample Output 0
+
+true

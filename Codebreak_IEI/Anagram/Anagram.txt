@@ -1,0 +1,26 @@
+source: https://www.hackerrank.com/contests/code-break-1671190321/challenges/anagram-66-1
+
+As part of the coding competition presented by HESTIA'22 you are assigned to solve a problem, the problem statement is as follows:
+
+Two strings s and t are given to the participants, return true if t is an anagram of s, and false otherwise.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+Input Format
+
+Input: s = "anagram", t = "nagaram" Input: s = "rat", t = "car"
+
+Constraints
+
+No Constraints
+
+Output Format
+
+Output: true Output: false
+
+Sample Input 0
+anagram
+nagaram
+
+Sample Output 0
+true
