@@ -1,0 +1,28 @@
+source: https://www.hackerrank.com/contests/code-break-1671190321/challenges/array-sum-32-1
+
+Given a list D of N integers, and an integer T, two numbers L and R are randomly chosen such that 0 ≤ L ≤ R < N.
+
+What is the probability that sum{D[L],... D[R]} <= T ?
+
+Input Format
+
+The first line will contain two numbers: N and T.
+N lines follow, each containing one number from list D.
+Constraints
+
+1 <= N < 100000
+0 <= D[i] < 1e7
+Output Format
+
+Output one number P to a maximum of 8 decimal places, the probability that sum{D[L],... D[R]} <= T.
+Sample Input 0
+
+5 10
+4 
+5 
+3 
+7
+1
+Sample Output 0
+
+0.6

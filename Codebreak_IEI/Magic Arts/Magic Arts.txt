@@ -1,0 +1,35 @@
+source: https://www.hackerrank.com/contests/code-break-1671190321/challenges/magic-arts
+
+The New Online Multiplayer game Magic Arts has attracted all gamers nationwide owing to its interactive gameplay. The game is divided into levels, with a boss at the end of each level who must be defeated in order to clear the level and proceed. At some time of the day, n players log in and start playing the game. Each boss can be defeated by spending some Magic Points(MP) , but the thing is that every player has limited amount of points. Also, based on their previous progress , every player is currently at some level. Each level of the game has a resting inn, a weapon-dealer and a necromancer who can rejuvenate their magic points.
+
+You, being a software intern at MagiWorks(the developer company of Magic arts) have to write a program which tells at what level will a player run out of magic and will visit the necromancer to rejuvenate their magic.
+
+Input Format
+
+The first line of the input contains 2 space separated integers n and m, which denote number of levels of MagicArts and number of online players respectively.
+
+The second line will contain n space separated integers , the i'th integer being xi , which denotes the amount of magic points required to defeat the monster at i'th level.
+
+Then follow m lines where the i'th line contains 2 space separated integers ai and pi which denote the current level and magic points of the i'th player respectively.
+
+Constraints
+
+1 <= n <= 105
+1 <= m <= 105
+1 <= xi <= 109
+1 <= ai <= n
+1 <= pi <= 109
+Output Format
+
+Output m lines where i'th line will be an integer denoting the level at which the i'th player will visit the necromancer. Also if the player has enough points to clear the game without any need of visiting, print "Never"(Without Quotes).
+
+Sample Input 0
+
+4 2
+1 3 1 4
+1 10
+2 5
+Sample Output 0
+
+Never
+4
