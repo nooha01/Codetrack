@@ -1,0 +1,12 @@
+SOLID
+S- Single responsibility  
+O- Open/Closed principle 
+L- Liskov substitution principle : subclass should extend the capability of parent class, not narrow it down
+I- Interface segmented principle
+D- Dependency inversion
+
+if class B is a subtype of class A, then we should be able to replace object of A without breaking the behaviour of the program.
+
+
+
+

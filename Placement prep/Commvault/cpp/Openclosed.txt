@@ -1,0 +1,56 @@
+SOLID
+O- Open/Closed principle : open for extension but closed for modification
+
+
+eg:
+
+class InvoiceDao {
+private:
+    Invoice invoice;
+
+public:
+    InvoiceDao(const Invoice& invoice)
+        : invoice(invoice) {}
+
+    void saveToDB() {
+        // Save to the DB
+    }
+};
+
+if save to file is also needed, common practice is to 
+
+class InvoiceDao {
+    Invoice invoice;
+
+    public InvoiceDao(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    public void savetoDB() {
+        //save the DB
+    }
+
+    public void savetoFile(String filename) {
+        //sabe to file
+    }
+}
+
+The above class does not follow O. Hence we need to make it to a interface . 
+
+interface InvoiceDao {
+    public void save(Invoice invoice);
+}
+
+class DatabaseInvoiceDao implements InvoiceDao {
+    @Override
+    public void save(Invoice invoice){
+        //save to DB
+    }
+}
+
+class FileInvoiceDao implements InvoiceDao {
+    @Override
+    public void save(Invoice invoice){
+        //save to file
+    }
+}

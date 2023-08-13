@@ -1,0 +1,101 @@
+SOLID
+S- Single responsibility  : a class should have only one reason to change
+O- Open/Closed principle
+L- Liskov substitution principle
+I- Interface segmented principle
+D- Dependency inversion
+
+Advantages:
+- avoid duplicate code
+- easy to maintain
+- easy to understand
+- flexible to software
+- reduce complexity
+
+eg:
+
+#include <iostream>
+#include <string>
+
+using namespace std;  // Using the std namespace
+
+class Marker {
+private:
+    string name;
+    string color;
+    int year;
+    int price;
+
+public:
+    Marker(const string& name, const string& color, int year, int price)
+        : name(name), color(color), year(year), price(price) {}
+
+    // You can add getter methods for accessing attributes if needed
+};
+
+class Invoice {
+private:
+    Marker marker;
+    int quantity;
+
+public:
+    Invoice(const Marker& marker, int quantity)
+        : marker(marker), quantity(quantity) {}
+
+    int calculateTotal() {
+        int price = marker.getPrice() * quantity;
+        return price;
+    }
+
+    void printInvoice() {
+        // Print the Invoice
+    }
+
+    void saveToDB() {
+        // Save to the DB
+    }
+};
+
+The above Invoice class do not follow the Single responsibility. There are three reasons to change the class. Make every method
+to seperate classes.
+
+class Invoice {
+private:
+    Marker marker;
+    int quantity;
+
+public:
+    Invoice(const Marker& marker, int quantity)
+        : marker(marker), quantity(quantity) {}
+
+    int calculateTotal() {
+        int price = marker.getPrice() * quantity;
+        return price;
+    }
+};
+
+class InvoicePrint {
+private:
+    Invoice invoice;
+
+public:
+    InvoicePrint(const Invoice& invoice)
+        : invoice(invoice) {}
+
+    void print() {
+        // Print the invoice
+    }
+};
+
+class InvoiceDao {
+private:
+    Invoice invoice;
+
+public:
+    InvoiceDao(const Invoice& invoice)
+        : invoice(invoice) {}
+
+    void saveToDB() {
+        // Save to the DB
+    }
+};
