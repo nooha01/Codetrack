@@ -1,23 +1,32 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
-int main()
-{
-    int n = 153;
-    int temp = n;
-    int p = 0;
-    while (n > 0)
-    {
-        int rem = n % 10;
-        p = (p) + (rem * rem * rem);
-        n = n / 10;
+
+bool isArmstrong(int number, int n) {
+    int sum = 0;
+    int temp = number;
+    
+    while (temp > 0) {
+        int digit = temp % 10;
+        sum += pow(digit, n);
+        temp /= 10;
     }
-    if (temp == p)
-    {
-        cout << ("Yes. It is Armstrong No.");
+    
+    return (sum == number);
+}
+
+int main() {
+    int number, n;
+    cout << "Enter a number: ";
+    cin >> number;
+    cout << "Enter the number of digits (n): ";
+    cin >> n;
+
+    if (isArmstrong(number, n)) {
+        cout << number << " is an Armstrong number for " << n << " digits." << endl;
+    } else {
+        cout << number << " is not an Armstrong number for " << n << " digits." << endl;
     }
-    else
-    {
-        cout << ("No. It is not an Armstrong No.");
-    }
+
     return 0;
 }
