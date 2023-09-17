@@ -9,9 +9,11 @@ by the total count of that character within the string.
 #include <string>
 #include <map>
 
-std::string compressString(const std::string &input)
+using namespace std;
+
+string compressString(const string &input)
 {
-    std::map<char, int> charCount;
+    map<char, int> charCount;
 
     // Parse the input string
     for (size_t i = 0; i < input.length(); i++)
@@ -31,13 +33,13 @@ std::string compressString(const std::string &input)
     }
 
     // Create the compressed string
-    std::string compressed;
+    string compressed;
     for (const auto &pair : charCount)
     {
         compressed += pair.first;
         if (pair.second > 1)
         {
-            compressed += std::to_string(pair.second);
+            compressed += to_string(pair.second);
         }
     }
 
@@ -46,12 +48,12 @@ std::string compressString(const std::string &input)
 
 int main()
 {
-    std::string input;
-    std::cout << "Enter the improperly compressed string: ";
-    std::cin >> input;
+    string input;
+    cout << "Enter the improperly compressed string: ";
+    cin >> input;
 
-    std::string compressed = compressString(input);
-    std::cout << "Properly compressed string: " << compressed << std::endl;
+    string compressed = compressString(input);
+    cout << "Properly compressed string: " << compressed << endl;
 
     return 0;
 }
