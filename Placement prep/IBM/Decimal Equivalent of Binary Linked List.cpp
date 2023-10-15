@@ -1,7 +1,7 @@
 /*
-A binary number is represented as a series of Os and Ts. 
-In this challenge, the series will be in the form of a singly-linked list. 
-Each node instance, a LinkedListNode, has a value, data, and a pointer to the next node, next. 
+A binary number is represented as a series of Os and Ts.
+In this challenge, the series will be in the form of a singly-linked list.
+Each node instance, a LinkedListNode, has a value, data, and a pointer to the next node, next.
 Given a reference to the head of a singly-linked list, convert the binary number represented to a decimal number.
 */
 
@@ -11,9 +11,9 @@ using namespace std;
 /* Link list Node */
 class Node
 {
-	public:
+public:
 	bool data;
-	Node* next;
+	Node *next;
 };
 
 /* Returns decimal value of binary linked list */
@@ -48,13 +48,13 @@ Node *newNode(bool data)
 int main()
 {
 	/* Start with the empty list */
-	Node* head = newNode(1);
+	Node *head = newNode(1);
 	head->next = newNode(0);
 	head->next->next = newNode(1);
 	head->next->next->next = newNode(1);
 
 	cout << "Decimal value is "
-		<< decimalValue(head);
+		 << decimalValue(head);
 
 	return 0;
 }
