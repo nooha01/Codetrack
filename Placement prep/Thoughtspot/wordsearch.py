@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/word-search/description/
 
+from typing import List
+
 class Solution:
 	def exist(self, board: List[List[str]], word: str) -> bool:
 			num_rows = len(board)  # for row number

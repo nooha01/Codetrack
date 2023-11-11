@@ -1,0 +1,57 @@
+# https://leetcode.com/problems/integer-to-english-words/description/
+
+class Solution:
+    def numberToWords(self, num: int) -> str:
+        mapping = {
+          1000000000: 'Billion',
+          1000000: 'Million',
+          1000: 'Thousand',
+          100: 'Hundred',
+          90: 'Ninety',
+          80: 'Eighty',
+          70: 'Seventy',
+          60: 'Sixty',
+          50: 'Fifty',
+          40: 'Forty',
+          30: 'Thirty',
+          20: 'Twenty',
+          19: 'Nineteen',
+          18: 'Eighteen',
+          17: 'Seventeen',
+          16: 'Sixteen',
+          15: 'Fifteen',
+          14: 'Fourteen',
+          13: 'Thirteen',
+          12: 'Twelve',
+          11: 'Eleven',
+          10: 'Ten',
+          9: 'Nine',
+          8: 'Eight',
+          7: 'Seven',
+          6: 'Six',
+          5: 'Five',
+          4: 'Four',
+          3: 'Three',
+          2: 'Two',
+          1: 'One'
+        }
+        if num==0:
+            return "Zero"
+        result=""
+
+        for val, name in mapping.items():
+            count = 0
+            if num>=val:
+                count = num//val
+                num%=val
+                if count > 1 or val >= 100:
+                    result = result+" "+self.numberToWords(count)+" "+name
+                else:
+                    result+=" "+name
+                
+        return result[1:]
+
+        
+        
+# for value, name in mapping.items(): allows you to iterate over the key-value pairs in the mapping dictionary.
+# By using mapping.items(), the code iterates over the dictionary items in the order of decreasing numerical values.
