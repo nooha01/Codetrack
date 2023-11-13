@@ -1,0 +1,46 @@
+MergeSort(arr, left, right)
+    if left < right
+        mid = (left + right) / 2
+
+        // Recursively sort the first and second halves
+        MergeSort(arr, left, mid)
+        MergeSort(arr, mid + 1, right)
+
+        // Merge the sorted halves
+        Merge(arr, left, mid, right)
+
+Merge(arr, left, mid, right)
+    n1 = mid - left + 1
+    n2 = right - mid
+
+    // Create temporary arrays L[0..n1-1] and R[0..n2-1]
+    for i = 0 to n1-1
+        L[i] = arr[left + i]
+    for j = 0 to n2-1
+        R[j] = arr[mid + 1 + j]
+
+    // Merge the temporary arrays back into arr[left..right]
+    i = 0 // Initial index of the first subarray
+    j = 0 // Initial index of the second subarray
+    k = left // Initial index of the merged subarray
+
+    while i < n1 and j < n2
+        if L[i] <= R[j]
+            arr[k] = L[i]
+            i++
+        else
+            arr[k] = R[j]
+            j++
+        k++
+
+    // Copy the remaining elements of L[], if there are any
+    while i < n1
+        arr[k] = L[i]
+        i++
+        k++
+
+    // Copy the remaining elements of R[], if there are any
+    while j < n2
+        arr[k] = R[j]
+        j++
+        k++
